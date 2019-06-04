@@ -55,12 +55,8 @@ int main(int argc,char** argv){
 	time_t intps;
 	struct tm* tmi;
     
-    if(argc!=2) {
-        perror("utilisation ./a.out <num_port> <file2send>\n");
-        exit(3);
-    }
     
-    sfd = create_server_socket(atoi(argv[1]));
+    sfd = create_server_socket(atoi(223));
     
     bzero(buffer,BUFFERT);
     listen(sfd,BACKLOG);
