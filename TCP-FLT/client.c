@@ -22,6 +22,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <strings.h>
+#include <fstream>
+#include<string.h>
+#include<iostream>
+#include<string>
 
 /* Taille du buffer utilise pour envoyer le fichier
  * en plusieurs blocs
@@ -51,10 +55,24 @@ int main (int argc, char**argv){
 		printf("Error usage : %s <ip_serv> <port_serv> <filename>\n",argv[0]);
 		return EXIT_FAILURE;
 	}
+	
+
+	char str1[40];
+	char str2[40];
+	char str3[40];
+	
+	std::cout<<"string 1 :"<<endl;
+	std::cin >> str1;
+	std::cout<<"string 2 :"<<endl;
+	std::cin >> str2;
+	srtcat(strcpy(str3,str1),str2);
+	std::ofstream myfile;
+	myfile.open("result.txt");
+	myfile << str3;
+	myfile.close();
+    sfd=create_client_socket(atoi(223),"192.168.0.2");
     
-    sfd=create_client_socket(atoi(argv[2]), argv[1]);
-    
-	if ((fd = open(argv[3],O_RDONLY))==-1){
+	if ((fd = open("result.txt",O_RDONLY))==-1){
 		perror("open fail");
 		return EXIT_FAILURE;
 	}
