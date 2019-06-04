@@ -51,10 +51,6 @@ int main (int argc, char**argv){
     int l=sizeof(struct sockaddr_in);
 	struct stat buffer;
     
-	if (argc != 4){
-		printf("Error usage : %s <ip_serv> <port_serv> <filename>\n",argv[0]);
-		return EXIT_FAILURE;
-	}
 	
 
 	char str1[40];
